@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreText : MonoBehaviour
+public class ScoreText : MonoBehaviour , IScore
 {
-    public void SetScoreText(int score)
+    public void SetText(int score)
     {
         GetComponent<TextMeshProUGUI>().text = $"Score: {score}";
     }
