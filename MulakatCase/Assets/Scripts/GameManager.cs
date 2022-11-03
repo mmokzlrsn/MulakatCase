@@ -52,13 +52,14 @@ public class GameManager : MonoBehaviour
         CheckHighScore();
     }
 
-    public void CheckHighScore()
+    public bool CheckHighScore()
     {
         if(score > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", score);
-            ScoreChanged.Invoke(score);
+            return true;
         }
+        return false;
 
     }
 }
