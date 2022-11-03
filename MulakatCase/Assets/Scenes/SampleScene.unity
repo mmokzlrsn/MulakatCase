@@ -165,8 +165,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189335991}
-  - component: {fileID: 189335990}
   - component: {fileID: 189335994}
+  - component: {fileID: 189335990}
   - component: {fileID: 189335993}
   m_Layer: 0
   m_Name: AI Right
@@ -606,9 +606,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745529878}
+  - component: {fileID: 745529880}
   - component: {fileID: 745529877}
   - component: {fileID: 745529879}
-  - component: {fileID: 745529880}
   - component: {fileID: 745529881}
   m_Layer: 0
   m_Name: Ball
@@ -616,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &745529877
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -778,8 +778,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 913810190}
-  - component: {fileID: 913810189}
   - component: {fileID: 913810188}
+  - component: {fileID: 913810189}
   - component: {fileID: 913810187}
   m_Layer: 0
   m_Name: AI Left
@@ -987,8 +987,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1219980930}
-  - component: {fileID: 1219980931}
   - component: {fileID: 1219980932}
+  - component: {fileID: 1219980931}
   - component: {fileID: 1219980933}
   m_Layer: 0
   m_Name: Laser
@@ -1306,8 +1306,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132782394}
-  - component: {fileID: 2132782393}
   - component: {fileID: 2132782392}
+  - component: {fileID: 2132782393}
   - component: {fileID: 2132782395}
   m_Layer: 0
   m_Name: Player
@@ -1328,6 +1328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdb6bd4c5793124788efd1cb45c4ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 7
+  xBound: 2
+  yBound: 4
 --- !u!212 &2132782393
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1388,7 +1391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132782390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []

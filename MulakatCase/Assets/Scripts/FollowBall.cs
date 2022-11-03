@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowBall : MonoBehaviour
 {
+    [Header("Target Object")]
     [SerializeField] private GameObject ball;
 
     // Update is called once per frame
@@ -14,6 +15,6 @@ public class FollowBall : MonoBehaviour
 
     public void MoveTowardsBall()
     {
-        transform.position = new Vector3(transform.position.x, ball.transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, ball.transform.position.y, transform.position.z); //GameObject will only follow the target on Y-axis
     }
 }

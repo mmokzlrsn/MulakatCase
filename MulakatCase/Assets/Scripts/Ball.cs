@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class Ball : MonoBehaviour , ICanMove
 {
     [Header("Speed Of The Ball")]
     [SerializeField] private float moveSpeed = 5f;
@@ -27,6 +27,16 @@ public class Ball : MonoBehaviour
     public int PositiveOrNegative()
     {
         return Random.Range(0, 2) == 0 ? -1 : 1;
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        moveSpeed = newSpeed;
+    }
+
+    public float GetSpeed()
+    {
+        return moveSpeed;
     }
 
 
