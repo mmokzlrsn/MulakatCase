@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class HighScoreText : MonoBehaviour
+public class HighScoreText : MonoBehaviour, IScore
 {
-    public void SetHighScoreText(int score)
+    public void SetText(int score)
     {
         GetComponent<TextMeshProUGUI>().text = $"HighScore: {PlayerPrefs.GetInt("HighScore")}";
     }
