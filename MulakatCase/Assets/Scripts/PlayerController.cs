@@ -77,6 +77,16 @@ public class PlayerController : MonoBehaviour , ICanMove
         return moveSpeed;
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        
+        if (collider.gameObject.CompareTag("Point"))
+        {
+            GameManager.Instance.UpdateScore();
+            Destroy(collider.gameObject);
+            Debug.Log("Collided");
+
+        }
+    }
 
 }

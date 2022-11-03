@@ -5,9 +5,14 @@ using TMPro;
 
 public class HighScoreText : MonoBehaviour, IScore
 {
+    private void Start()
+    {
+        GetComponent<TextMeshProUGUI>().text = $"High Score: {PlayerPrefs.GetInt("HighScore")}";
+    }
+
     public void SetText(int score)
     {
         if(GameManager.Instance.CheckHighScore())
-        GetComponent<TextMeshProUGUI>().text = $"HighScore: {PlayerPrefs.GetInt("HighScore")}";
+        GetComponent<TextMeshProUGUI>().text = $"High Score: {PlayerPrefs.GetInt("HighScore")}";
     }
 }
