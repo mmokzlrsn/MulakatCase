@@ -5,5 +5,7 @@ using UnityEngine;
 public interface IScore
 {
     public void SetText(int score);
+
+
     
 }

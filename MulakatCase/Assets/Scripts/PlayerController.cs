@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PlayerController : MonoBehaviour , ICanMove
 {
@@ -11,10 +13,43 @@ public class PlayerController : MonoBehaviour , ICanMove
     [SerializeField] private float xBound = 2f;
     [SerializeField] private float yBound = 4f;
 
+    [Header("Jump Details")]
+    [SerializeField] private float airTime = 2f;
+    [SerializeField] private GameObject wings;
+    [SerializeField] private bool isGround;
+    [SerializeField] private UnityEvent<bool> flying;
+
 
     private void Update()
     {
         KeyboardMovement(CalculateMovement());
+        Fly();
+        
+    }
+
+    public void Fly()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        {
+            flying.Invoke(true);
+            isGround = false;
+            wings.gameObject.SetActive(true);
+            StartCoroutine(AirTimeCountdownRoutine());
+        }
+    }
+
+    public void WingsDisplay()
+    {
+        wings.transform.position = new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z);
+    }
+
+    IEnumerator AirTimeCountdownRoutine()
+    {
+        //WingsDisplay();
+        yield return new WaitForSeconds(airTime);
+        wings.gameObject.SetActive(false);
+        isGround = true;
+        flying.Invoke(false);
     }
 
     private void KeyboardMovement(Vector3 moveDir)

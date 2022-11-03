@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
      
     [Header("Audio")]
-    [SerializeField] private UnityEvent<AudioClip> scoreSound;
+    [SerializeField] private UnityEvent<AudioClip> ScoreSound;
 
     [Header("Score Information")]
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -52,11 +52,20 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void PlayScoreSound(AudioClip clip)
+    {
+        Debug.Log("Audio is played");
+        ScoreSound.Invoke(clip);
+    }
+
+     
+
     public bool CheckHighScore()
     {
         if(score >= PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", score);
+             
             return true;
         }
         return false;
