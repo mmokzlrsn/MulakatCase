@@ -49,10 +49,11 @@ public class PlayerController : MonoBehaviour , ICanMove
     {
         //WingsDisplay();
         yield return new WaitForSeconds(airTime);
-        yield return new WaitForSeconds(wingsCooldown);
         wings.gameObject.SetActive(false);
-        isGround = true;
+        isGround = false;
         flying.Invoke(false);
+        yield return new WaitForSeconds(wingsCooldown);
+        isGround = true;
     }
 
     private void KeyboardMovement(Vector3 moveDir)
