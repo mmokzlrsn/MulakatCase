@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour , ICanMove
     [SerializeField] private float yBound = 4f;
 
     [Header("Jump Details")]
-    [SerializeField] private float airTime = 2f;
+    [SerializeField] private float airTime = 1.5f;
     [SerializeField] private GameObject wings;
+    [SerializeField] private float wingsCooldown = 0.5f;
     [SerializeField] private bool isGround;
     [SerializeField] private UnityEvent<bool> flying;
+
 
 
     private void Update()
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour , ICanMove
     {
         //WingsDisplay();
         yield return new WaitForSeconds(airTime);
+        yield return new WaitForSeconds(wingsCooldown);
         wings.gameObject.SetActive(false);
         isGround = true;
         flying.Invoke(false);
