@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         ScoreChanged.Invoke(score);
-        CheckHighScore();
+        
     }
 
     public bool CheckHighScore()
